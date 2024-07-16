@@ -6,8 +6,14 @@ this_dir = pathlib.Path(__file__).resolve().parent
 
 def home_page_view(request, *args, **kwargs):
     
-    print(this_dir)
-    html_ = """
+    my_title = "My page"
+    my_context={
+        "page_title":my_title
+    }
+    
+    
+    #print(this_dir)
+    html_ = f"""
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +23,10 @@ def home_page_view(request, *args, **kwargs):
     <title>Home</title>
 </head>
 <body>
-    <h1>Is this anything? (Inline HTML) </h1>
+    <h1>{page_title} anything? </h1>
 </body>
 </html>
-    """
+    """.format(**my_context) #page_title=my_title
    # html_file_path = this_dir/"home.html"
    # html_ = html_file_path.read_text()
         
